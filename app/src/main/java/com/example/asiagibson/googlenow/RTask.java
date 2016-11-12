@@ -8,24 +8,18 @@ public class RTask {
     private String title;
     private String textEdit;
     private int imageView;
-    private Integer hexColor;
 
 
-    public RTask(String title, String edit, int img, Integer hex) {
+    public RTask(String title, String edit, int img) {
         this.title = title;
         this.textEdit = edit;
         this.imageView = img;
-        this.hexColor = hex;
 
     }
 
     public String getTitle() {
         return title;
     }
-  /*  public void setTitle(){
-        this.title = title;
-    }*/
-
 
     public String getTextEdit() {
         return textEdit;
@@ -35,7 +29,4 @@ public class RTask {
         return imageView;
     }
 
-    public Integer getHexColor() {
-        return hexColor;
-    }
 }

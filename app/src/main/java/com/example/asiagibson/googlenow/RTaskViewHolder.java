@@ -38,7 +38,7 @@ public class RTaskViewHolder extends RecyclerView.ViewHolder {
     public void bind(String holderTask) {
 
         textView.setText(holderTask);
-        switch (holderTask){
+        switch (holderTask) {
             case "Urgent":
                 mView.setBackgroundColor(Color.parseColor("#ff6666"));
                 break;
