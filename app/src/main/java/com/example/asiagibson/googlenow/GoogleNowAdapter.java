@@ -1,8 +1,6 @@
 package com.example.asiagibson.googlenow;
 
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.Arrays;
@@ -10,45 +8,45 @@ import java.util.List;
 
 public class GoogleNowAdapter extends RecyclerView.Adapter {
 
-    private final int YELPCARD = 0, TRANSLATECARD = 1, REMINDERCARD = 2;
+    private final int SOUNDCLOUDCARD = 0, TRANSLATECARD = 1, REMINDERCARD = 2;
 
     // The items to display in the RecyclerView
     List<GoogleNowCard> mList = Arrays.asList(
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard(),
             new ReminderCard(),
-            new YelpCard(),
+            new SoundCloudCard(),
             new TranslateCard()
     );
 
@@ -64,8 +62,8 @@ public class GoogleNowAdapter extends RecyclerView.Adapter {
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder viewHolder = null; // double check that this can be done
         switch (viewType) {
-            case YELPCARD:
-                viewHolder = new YelpViewHolder(parent);
+            case SOUNDCLOUDCARD:
+                viewHolder = new SoundCloudViewHolder(parent);
                 break;
             case TRANSLATECARD:
                 viewHolder = new TranslateViewHolder(parent);
@@ -81,10 +79,10 @@ public class GoogleNowAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         switch (holder.getItemViewType()) {
-            case YELPCARD:
-                YelpViewHolder yelpViewHolder = (YelpViewHolder) holder;
+            case SOUNDCLOUDCARD:
+                SoundCloudViewHolder soundCloudViewHolder = (SoundCloudViewHolder) holder;
                 GoogleNowCard nowCard = mList.get(position);
-                yelpViewHolder.bind(nowCard);
+                soundCloudViewHolder.bind(nowCard);
                 break;
             case TRANSLATECARD:
                 TranslateViewHolder translateViewHolder = (TranslateViewHolder) holder;
@@ -102,8 +100,8 @@ public class GoogleNowAdapter extends RecyclerView.Adapter {
     // Checks the type of the itemView and returns the int associated with that itemView
     @Override
     public int getItemViewType(int position) {
-        if (mList.get(position) instanceof YelpCard) {
-            return YELPCARD;
+        if (mList.get(position) instanceof SoundCloudCard) {
+            return SOUNDCLOUDCARD;
         } else if (mList.get(position) instanceof TranslateCard) {
             return TRANSLATECARD;
         } else if (mList.get(position) instanceof ReminderCard) {
