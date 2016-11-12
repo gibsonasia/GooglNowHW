@@ -11,21 +11,23 @@ import java.util.List;
  */
 
 public class RTaskAdapter extends RecyclerView.Adapter {
+    public int image = (R.drawable.datecal);
+
 
     private List<String> mRTaskList = Arrays.asList(
 
-            "Urgernt",
+            "Urgent",
             "Reminder",
-            "Cook",
-            "PackLunch",
-            "Urgernt",
+            "App Idea",
+            "Pack Lunch",
+            "Urgent",
             "Reminder",
-            "Cook",
-            "PackLunch",
-            "Urgernt",
+            "App Idea",
+            "Pack Lunch",
+            "Urgent",
             "Reminder",
-            "Cook",
-            "PackLunch"
+            "App Idea",
+            "Pack Lunch"
 
     );
 
@@ -39,6 +41,8 @@ public class RTaskAdapter extends RecyclerView.Adapter {
         RTaskViewHolder taskHolder = (RTaskViewHolder) holder;
         String holderTask = mRTaskList.get(position);
         taskHolder.bind(holderTask);
+        taskHolder.imageView.setImageResource(image);
+
     }
 
     @Override

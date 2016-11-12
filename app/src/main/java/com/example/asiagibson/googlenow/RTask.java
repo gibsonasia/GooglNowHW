@@ -7,13 +7,19 @@ package com.example.asiagibson.googlenow;
 public class RTask {
     private String title;
     private String textEdit;
+    private int imageView;
+    private Integer hexColor;
 
-    public RTask(String title,String edit){
+
+    public RTask(String title, String edit, int img, Integer hex) {
         this.title = title;
         this.textEdit = edit;
+        this.imageView = img;
+        this.hexColor = hex;
+
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
   /*  public void setTitle(){
@@ -21,7 +27,15 @@ public class RTask {
     }*/
 
 
-    public String getTextEdit(){
+    public String getTextEdit() {
         return textEdit;
+    }
+
+    public int getImageView() {
+        return imageView;
+    }
+
+    public Integer getHexColor() {
+        return hexColor;
     }
 }
