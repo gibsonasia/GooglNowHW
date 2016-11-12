@@ -1,0 +1,32 @@
+package com.example.asiagibson.googlenow;
+
+public class SoundCloudTrack {
+
+    private String title;
+    private String artwork_url;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getArtwork_url() {
+        return artwork_url;
+    }
+
+    public void setArtwork_url(String artwork_url) {
+        this.artwork_url = artwork_url;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+}
