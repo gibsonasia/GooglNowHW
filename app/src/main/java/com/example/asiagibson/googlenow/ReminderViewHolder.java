@@ -5,22 +5,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * Created by asiagibson on 11/7/16.
- */
-
-public class RTaskViewHolder extends RecyclerView.ViewHolder {
+public class ReminderViewHolder extends RecyclerView.ViewHolder implements GoogleNowCard {
     private View mView;
     public ImageView imageView;
 
     private TextView textView;
 
 
-    public RTaskViewHolder(ViewGroup parent) {
+    public ReminderViewHolder(ViewGroup parent) {
         super(inflateView(parent));
         mView = itemView;
         textView = (TextView) itemView.findViewById(R.id.header_title);
@@ -35,10 +30,10 @@ public class RTaskViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void bind(String holderTask) {
-
-        textView.setText(holderTask);
-        switch (holderTask) {
+    public void bind(GoogleNowCard googleNowCard) {
+        ReminderCard reminderCard = (ReminderCard) googleNowCard;
+        String cardTitle =  reminderCard.getCardTitle();
+        switch (cardTitle) {
             case "Urgent":
                 mView.setBackgroundColor(Color.parseColor("#ff6666"));
                 break;
@@ -54,6 +49,4 @@ public class RTaskViewHolder extends RecyclerView.ViewHolder {
         }
     }
 
-
 }
-
