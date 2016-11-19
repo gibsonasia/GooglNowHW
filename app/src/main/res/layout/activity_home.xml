@@ -45,7 +45,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/love_music"
+                        android:id="@+id/main_text_backdrop"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Google RIGHT Now"
