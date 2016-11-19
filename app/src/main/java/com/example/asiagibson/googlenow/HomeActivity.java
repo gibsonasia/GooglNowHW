@@ -1,19 +1,23 @@
 package com.example.asiagibson.googlenow;
 
+import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private ImageView backDrop;
+    private SwipeRefreshLayout swipeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +26,18 @@ public class HomeActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         initCollapsingToolbar();
+
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Pull Refresh Currently Displays Toast (figure out what else to do)
+                Toast.makeText(getApplicationContext(),"This was pulled down",Toast.LENGTH_SHORT).show();
+                swipeContainer.setRefreshing(false);
+            }
+        });
+
 
         mRecyclerView = (RecyclerView) findViewById(R.id.cardview_list);
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, 1));
@@ -31,6 +45,13 @@ public class HomeActivity extends AppCompatActivity {
 
         backDrop = (ImageView) findViewById(R.id.appbar_background);
         Picasso.with(this).load(R.drawable.android_banner).into(backDrop);
+    }
+
+    private void refreshList() {
+        GoogleNowAdapter googleNowAdapter = new GoogleNowAdapter();
+        googleNowAdapter.clear();
+        googleNowAdapter.addAll();
+        swipeContainer.setRefreshing(false);
     }
 
     private void initCollapsingToolbar() {

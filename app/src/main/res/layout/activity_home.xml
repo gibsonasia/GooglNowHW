@@ -87,11 +87,18 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.example.asiagibson.googlenow.HomeActivity">
 
+        <android.support.v4.widget.SwipeRefreshLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/swipeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/cardview_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false" />
+        </android.support.v4.widget.SwipeRefreshLayout>
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
