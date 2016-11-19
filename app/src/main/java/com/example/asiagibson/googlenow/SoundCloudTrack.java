@@ -5,6 +5,15 @@ public class SoundCloudTrack {
     private String title;
     private String artwork_url;
     private User user;
+    private String permalink_url;
+
+    public String getPermalinkUrl() {
+        return permalink_url;
+    }
+
+    public void setPermalinkUrl(String permalink_url) {
+        this.permalink_url = permalink_url;
+    }
 
     public User getUser() {
         return user;
