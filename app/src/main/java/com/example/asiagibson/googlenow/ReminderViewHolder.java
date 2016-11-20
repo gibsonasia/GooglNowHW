@@ -3,7 +3,7 @@ package com.example.asiagibson.googlenow;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,13 +14,18 @@ import android.widget.TextView;
 
 public class ReminderViewHolder extends RecyclerView.ViewHolder implements GoogleNowCard {
 
-    SharedPreferences sharedPreferences;
-    public static String MYPREFERENCES = "MyPref";
+  //SharedPreferences sharedPreferences;
+    public static String MyPREFERENCES = "MyPref";
     public static String input = "inputKey";
 
     private View mView;
     public ImageView imageView;
     public EditText editText;
+    private Context mContext;
+    private String saveData;
+
+
+
 
 
     private TextView textView;
@@ -28,10 +33,19 @@ public class ReminderViewHolder extends RecyclerView.ViewHolder implements Googl
 
     public ReminderViewHolder(ViewGroup parent) {
         super(inflateView(parent));
+        mContext = itemView.getContext();
         mView = itemView;
+
         textView = (TextView) itemView.findViewById(R.id.header_title);
         imageView = (ImageView) itemView.findViewById(R.id.date_cal);
 
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+        saveData = sharedPrefs.getString(input, "no string");
+
+
+        if(!saveData.equalsIgnoreCase("no string")){
+            editText.setText(saveData);
+        }
 
     }
 
@@ -62,7 +76,7 @@ public class ReminderViewHolder extends RecyclerView.ViewHolder implements Googl
         imageView = (ImageView) itemView.findViewById(R.id.date_cal);
         imageView.setClickable(true);
         Context ctx = itemView.getContext();
-        final SharedPreferences sharedPreferences = ctx.getSharedPreferences(MYPREFERENCES, Context.MODE_PRIVATE);
+        final SharedPreferences sharedPreferences = ctx.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +85,7 @@ public class ReminderViewHolder extends RecyclerView.ViewHolder implements Googl
 
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString(input, input1);
-                editor.apply();
+                editor.commit();
 
             }
         });
