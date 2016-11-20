@@ -12,40 +12,40 @@ public class GoogleNowAdapter extends RecyclerView.Adapter {
 
     // The items to display in the RecyclerView
     List<GoogleNowCard> mList = Arrays.asList(
-            new ReminderCard(),
+            new ReminderCard("App Idea"),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+            new ReminderCard("Urgent"),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+            new ReminderCard("Pack Lunch"),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+            new ReminderCard("Reminder"),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+            new ReminderCard("App Idea"),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+            new ReminderCard("Urgent"),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+        //    new ReminderCard(),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+         //   new ReminderCard(),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+            //new ReminderCard(),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+           // new ReminderCard(),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+          //  new ReminderCard(),
             new SoundCloudCard(),
             new TranslateCard(),
-            new ReminderCard(),
+         //   new ReminderCard(),
             new SoundCloudCard(),
             new TranslateCard()
     );
@@ -114,5 +114,17 @@ public class GoogleNowAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemCount() {
         return mList.size();
+    }
+
+    // Clear all elements of the RecyclerView
+    public void clear() {
+        mList.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items
+    public void addAll() {
+//        mList.addAll();
+        notifyDataSetChanged();
     }
 }
