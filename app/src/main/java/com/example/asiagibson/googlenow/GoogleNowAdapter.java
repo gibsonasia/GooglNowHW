@@ -118,4 +118,16 @@ public class GoogleNowAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return mList.size();
     }
+
+    // Clear all elements of the RecyclerView
+    public void clear() {
+        mList.clear();
+        notifyDataSetChanged();
+    }
+
+    // Add a list of items
+    public void addAll() {
+//        mList.addAll();
+        notifyDataSetChanged();
+    }
 }

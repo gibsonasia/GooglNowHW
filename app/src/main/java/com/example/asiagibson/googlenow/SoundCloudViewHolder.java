@@ -1,5 +1,7 @@
 package com.example.asiagibson.googlenow;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -55,7 +57,7 @@ public class SoundCloudViewHolder extends RecyclerView.ViewHolder implements Goo
                 List<SoundCloudTrack> list = response.body();
                 Random r = new Random();
                 int randomEpisode = r.nextInt(list.size());
-                SoundCloudTrack track = list.get(randomEpisode);
+                final SoundCloudTrack track = list.get(randomEpisode);
 
                 // Set image to ImageView
                 String imageUrl = track.getArtwork_url();
@@ -69,6 +71,15 @@ public class SoundCloudViewHolder extends RecyclerView.ViewHolder implements Goo
                 // Set text to TextView
                 String trackTitle = track.getTitle();
                 soundCloudTv.setText(trackTitle);
+
+                // Setting onClickListener to navigate user to episode on SoundCloud
+                mView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(track.getPermalinkUrl()));
+                        mView.getContext().startActivity(browserIntent);
+                    }
+                });
             }
 
             @Override
