@@ -37,7 +37,7 @@ public class ReminderViewHolder extends RecyclerView.ViewHolder implements Googl
 
     private static View inflateView(ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        return inflater.inflate(R.layout.cardview, parent, false);
+        return inflater.inflate(R.layout.reminder_view_holder, parent, false);
 
     }
 

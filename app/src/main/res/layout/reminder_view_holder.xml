@@ -12,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="5dp"
         android:elevation="3dp"
-        card_view:cardCornerRadius="2dp">
+        android:layout_margin="5dp"
+        app:cardCornerRadius="14dp">
 
         <TextView
             android:id="@+id/header_title"
