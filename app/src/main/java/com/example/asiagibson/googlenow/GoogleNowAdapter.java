@@ -9,6 +9,7 @@ import java.util.List;
 public class GoogleNowAdapter extends RecyclerView.Adapter {
 
     private final int SOUNDCLOUDCARD = 0, TRANSLATECARD = 1, REMINDERCARD = 2;
+    public int image = (R.drawable.datecal);
 
     // The items to display in the RecyclerView
     List<GoogleNowCard> mList = Arrays.asList(
@@ -93,6 +94,8 @@ public class GoogleNowAdapter extends RecyclerView.Adapter {
                 ReminderViewHolder reminderViewHolder = (ReminderViewHolder) holder;
                 GoogleNowCard nowCard2 = mList.get(position);
                 reminderViewHolder.bind(nowCard2);
+                reminderViewHolder.imageView.setImageResource(image);
+
                 break;
         }
     }
