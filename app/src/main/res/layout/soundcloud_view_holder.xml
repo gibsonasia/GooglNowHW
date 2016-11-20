@@ -30,9 +30,9 @@
                 android:padding="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="5"
+                android:maxLines="4"
                 android:ellipsize="end"
-                android:textSize="21sp" />
+                android:textSize="22sp" />
 
         </LinearLayout>
 
